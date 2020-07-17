@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     if @post.user_id != @current_user.id
       flash[:notice]="権限がありません"
       redirect_to("/posts/index")
+    end
   end
 
   def index
