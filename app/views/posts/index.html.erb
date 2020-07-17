@@ -1,20 +1,17 @@
-<header>
-  <div class="header-logo">
-    <a href="/top">TweetApp</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">TweetAppとは</a>
-    </li>
-  </ul>
-</header>
-
 <div class="main posts-index">
   <div class="container">
-    <% @posts.each do|post| %>
-     <div class="posts-index-item">
-       <%= post.content %>
-     </div>
-   <% end %>
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name,"/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
